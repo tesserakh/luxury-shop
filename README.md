@@ -14,6 +14,7 @@ The informations scraped are:
 
 - Product name
 - Product price (with currency)
+- Discount price
 - Availability (in stock/ out stock)
 - Product photo url
 - Product details (brand, color, etc.)

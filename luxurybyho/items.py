@@ -16,3 +16,4 @@ class ProductItem(scrapy.Item):
     brand = scrapy.Field()
     date = scrapy.Field()
     url = scrapy.Field()
+    productid = scrapy.Field()
