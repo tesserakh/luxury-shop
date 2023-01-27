@@ -14,6 +14,14 @@ NEWSPIDER_MODULE = 'luxurybyho.spiders'
 # USER_AGENT = 'Your friend (https://github.com)'
 ROBOTSTXT_OBEY = True
 
+# Export feeds
+FEEDS = {
+    'data/product-%(time)s.json': {
+        'format': 'json',
+        'item_classes': ['luxurybyho.items.ProductItem']
+    }
+}
+
 # Configure item pipelines <https://docs.scrapy.org/en/latest/topics/item-pipeline.html>
 ITEM_PIPELINES = {
     'luxurybyho.pipelines.LuxurybyhoPipeline': 300,
