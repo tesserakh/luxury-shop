@@ -42,8 +42,7 @@ class ShopSpider(scrapy.Spider):
             stock = product.css('div.product-stock > span:nth-child(2)::text').get().strip().lower()
             stock = 1 if stock == 'in stock' else 0
             item['availability'] = stock
-            #item['picture'] = product.css('div.img-thumbnail.slick-active > a.active').attrib['href']
-            item['picture'] = product.css('div.woocommerce-product-gallery__image > a').attrib['href']
+            item['picture'] = product.css('div.woocommerce-product-gallery__image > img').attrib['src']
             product_attrib = response.css('table.woocommerce-product-attributes.shop_attributes')
             for row in product_attrib.css('tr'):
                 field_name = row.css('th::text').get().lower()
