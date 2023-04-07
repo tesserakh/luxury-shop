@@ -27,7 +27,8 @@ The dashboard will help you to display in a way, so you can easily see the shop'
 ## Progress
 
 - [x] Create daily scheduled scraper
-- [ ] Create analitical script
+- [x] Create analytical script
+- [ ] Follow [schema.org](https://schema.org/Product) for product item
 - [ ] Create dashboard
 
 ## Reference

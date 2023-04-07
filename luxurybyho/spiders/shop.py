@@ -26,14 +26,14 @@ class ShopSpider(scrapy.Spider):
         try:
             product = response.css('div.product > div.row')
             item['name'] = product.css('h1.product_title::text').get().strip()
-            try:
-                # price = normal price
-                # discount = price when discount applied
-                item['price'] = product.css('p.price > span.woocommerce-Price-amount > bdi::text').get().strip().replace('.','').replace(',','.')
+            # price = normal price
+            # discount = price when discount applied
+            if len(product.css('p.price bdi')) == 1:
+                item['price'] = product.css('p.price bdi::text').get().strip().replace('.','').replace(',','.')
                 item['discount'] = None
-            except:
-                item['price'] = product.css('p.price > del > span.woocommerce-Price-amount > bdi::text').get().strip().replace('.','').replace(',','.')
-                item['discount'] = product.css('p.price > ins > span.woocommerce-Price-amount > bdi::text').get().strip().replace('.','').replace(',','.')
+            if len(product.css('p.price bdi')) > 1:
+                item['price'] = product.css('p.price del bdi::text').get().strip().replace('.','').replace(',','.')
+                item['discount'] = product.css('p.price ins bdi::text').get().strip().replace('.','').replace(',','.')
             try:
                 item['currency'] = product.css('span.woocommerce-Price-currencyCode::text').get().strip()
             except:

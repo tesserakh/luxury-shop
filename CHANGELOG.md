@@ -1,3 +1,7 @@
+# v0.1.3
+
+- Update CSS selector and if conditions
+
 # v0.1.2
 
 - Back to JSON for storage
